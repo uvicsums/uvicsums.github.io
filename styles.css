@@ -1,11 +1,15 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* Base layout for full height and flex layout */
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
   color: #333;
 }
 
+/* Header styling */
 header {
   text-align: center;
   padding: 2rem 1rem;
@@ -18,30 +22,82 @@ header {
   margin-bottom: 1rem;
 }
 
+/* Navigation links */
 nav a {
   margin: 0 1rem;
   text-decoration: none;
-  color: #0077cc;
+  color: #333;
   font-weight: bold;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
+/* Main content area */
 main {
   padding: 2rem;
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
+  flex: 1;
 }
 
+/* Content sections */
 .about, .calendar {
   margin-bottom: 2rem;
 }
 
+/* Make embedded media responsive */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer styling */
 footer {
+  padding: 1em;
   text-align: center;
-  padding: 1rem;
   background-color: #ffffff;
-  border-top: 1px solid #ddd;
+}
+
+/* Footer social links */
+.social-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: #ffffff;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+  header {
+    padding: 1rem;
+  }
+
+  .logo {
+    max-width: 80px;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
+
+.calendar-container {
+  position: relative;
+  padding-top: 75%; /* Adjust for desired aspect ratio (4:3 here) */
+  height: 0;
+  overflow: hidden;
+}
+
+.calendar-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
